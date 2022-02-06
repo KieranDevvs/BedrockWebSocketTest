@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6241a659-ba9d-4a17-89e4-4a2cfd169319": {
+      "ProjectGuid": "6241a659-ba9d-4a17-89e4-4a2cfd169319",
+      "DisplayName": "BedrockWebSocketTest.Server",
+      "ColorIndex": 0
+    },
+    "e21a6525-c77f-417b-b95c-5ca8b988be79": {
+      "ProjectGuid": "e21a6525-c77f-417b-b95c-5ca8b988be79",
+      "DisplayName": "BedrockWebSocketTest.Client",
+      "ColorIndex": 1
+    },
+    "281720a0-a8dd-496a-829a-b35cb27f0cd9": {
+      "ProjectGuid": "281720a0-a8dd-496a-829a-b35cb27f0cd9",
+      "DisplayName": "BedrockWebSocketTest.Shared",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}
