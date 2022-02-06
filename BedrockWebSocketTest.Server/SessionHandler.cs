@@ -21,7 +21,7 @@ namespace BedrockWebSocketTest.Server
             var reader = connection.CreateReader();
             var writer = connection.CreateWriter();
 
-            var payload = Encoding.UTF8.GetBytes($"This is a {string.Join(" ", Enumerable.Range(0, 14).Select(x => "really"))} long message.");
+            var payload = Encoding.UTF8.GetBytes($"This is a {string.Join(" ", Enumerable.Range(0, 15).Select(x => "really"))} long message.");
             await writer.WriteAsync(_protocol, payload);
 
             reader.Advance();

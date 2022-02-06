@@ -22,6 +22,8 @@ namespace BedrockWebSocketTest.Server
 
             await server.StartAsync();
 
+            Console.WriteLine($"Listening on: {Environment.NewLine}{string.Join(Environment.NewLine, server.EndPoints)}");
+
             var tcs = new TaskCompletionSource<object>();
             Console.CancelKeyPress += (sender, e) => tcs.TrySetResult(true);
             await tcs.Task;

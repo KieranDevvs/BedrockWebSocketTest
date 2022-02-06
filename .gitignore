@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/BedrockWebSocketTest
+/BedrockWebSocketTest.Server/obj
+/BedrockWebSocketTest.Server/bin
+/BedrockWebSocketTest.Client/obj
+/BedrockWebSocketTest.Client/bin
