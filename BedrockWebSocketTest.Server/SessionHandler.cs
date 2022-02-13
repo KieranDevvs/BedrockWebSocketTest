@@ -9,22 +9,17 @@ namespace BedrockWebSocketTest.Server
 
     public class SessionHandler : ConnectionHandler
     {
-        private readonly FixedLengthProtobufProtocol _protocol;
-
-        public SessionHandler()
-        {
-            _protocol = new FixedLengthProtobufProtocol();
-        }
+        private WebSocketProtocol? _protocol;
 
         public override async Task OnConnectedAsync(ConnectionContext connection)
         {
-            var reader = connection.CreateReader();
-            var writer = connection.CreateWriter();
+            _protocol = WebSocketProtocol.CreateFromConnection(connection, false, null, TimeSpan.FromSeconds(30));
 
-            var payload = Encoding.UTF8.GetBytes($"This is a {string.Join(" ", Enumerable.Range(0, 15).Select(x => "really"))} long message.");
-            await writer.WriteAsync(_protocol, payload);
-
-            reader.Advance();
+            if (_protocol.WebSocket.State == WebSocketState.Open)
+            {
+                var payload = Encoding.UTF8.GetBytes($"This is a {string.Join(" ", Enumerable.Range(0, 20).Select(x => "really"))} long message.");
+                await _protocol.WebSocket.SendAsync(payload, WebSocketMessageType.Binary, true, CancellationToken.None);
+            }
         }
     }
 }
