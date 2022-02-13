@@ -15,11 +15,8 @@ namespace BedrockWebSocketTest.Server
         {
             _protocol = WebSocketProtocol.CreateFromConnection(connection, false, null, TimeSpan.FromSeconds(30));
 
-            if (_protocol.WebSocket.State == WebSocketState.Open)
-            {
-                var payload = Encoding.UTF8.GetBytes($"This is a {string.Join(" ", Enumerable.Range(0, 20).Select(x => "really"))} long message.");
-                await _protocol.WriteAsync(payload, WebSocketMessageType.Binary, true, CancellationToken.None);
-            }
+            var payload = Encoding.UTF8.GetBytes($"This is a {string.Join(" ", Enumerable.Range(0, 20).Select(x => "really"))} long message.");
+            await _protocol.WriteAsync(payload, WebSocketMessageType.Binary, true, CancellationToken.None);
         }
     }
 }
