@@ -18,20 +18,10 @@ public class ClientConnection
 
     public async Task ListenAsync(CancellationToken cancellationToken = default)
     {
-        var lengthBuffer = new byte[4];
-        var lengthResult = await _websocket.ReceiveAsync(lengthBuffer, cancellationToken);
-
-        var payloadLendth = BitConverter.ToInt32(lengthBuffer);
-
-        var buffer = new byte[payloadLendth];
+        var buffer = new byte[4096];
 
         var result = await _websocket.ReceiveAsync(buffer, cancellationToken);
-
-        if (result.MessageType == WebSocketMessageType.Close)
-        {
-            return;
-        }
-
+        
         Console.WriteLine(System.Text.Encoding.UTF8.GetString(buffer));
     }
 
